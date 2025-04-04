@@ -1,8 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Contact() {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      onPress={() => console.log("clicou")}
+      style={styles.container}
+    >
       <View
         style={{
           display: "flex",
@@ -40,7 +43,7 @@ export default function Contact() {
           <Text style={styles.whiteText}>270</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 

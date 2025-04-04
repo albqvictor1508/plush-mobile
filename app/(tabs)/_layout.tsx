@@ -1,43 +1,40 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
-
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { Tabs } from "expo-router";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: "yellow",
         headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
+        tabBarStyle: { backgroundColor: "#6000FB" },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "Chats",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={28} name="comments" color={color} />
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="stories"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: "Stories",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={20} name="camera" color={color || "white"} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="configs"
+        options={{
+          title: "Ajustes",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={24} name="gear" color={color} />
+          ),
         }}
       />
     </Tabs>

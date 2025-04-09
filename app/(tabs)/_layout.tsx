@@ -1,13 +1,15 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs } from "expo-router";
+import { BlurView } from "expo-blur";
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "yellow",
+        tabBarActiveTintColor: "#6000FB",
         headerShown: false,
-        tabBarStyle: { backgroundColor: "#6000FB" },
+        tabBarStyle: { position: "absolute" },
+        tabBarBackground: () => <BlurView tint="dark" intensity={100} />,
       }}
     >
       <Tabs.Screen

@@ -1,9 +1,10 @@
+import { router } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Contact() {
   return (
     <TouchableOpacity
-      onPress={() => console.log("clicou")}
+      onPress={() => router.push("/(stacks)/chat")}
       style={styles.container}
     >
       <View
